@@ -1,0 +1,25 @@
+1. Executive Summary
+GCoder AI is a lightweight, high-performance web application designed to assist students and developers in real-time code analysis. It leverages the Gemini 3 Flash model to identify syntax/logic errors and provide plain-English explanations, helping users learn why their code broke rather than just providing a patch.
+
+2. User Persona
+The Learner: A student (e.g., Engineering student) struggling with C or Python assignments, needing immediate feedback on syntax errors to avoid "black box" solutions.
+
+The Developer: A user needing a quick, "no-bloat" debugger that integrates into their workflow without the overhead of heavy IDE plugins.
+
+3. Functional Requirements
+Code Input: A multi-language text area supporting C, Python, Java, JavaScript, Rust, Go, SQL, etc.
+
+Intelligent Analysis: Use Gemini 3 Flash to detect errors and explain solutions in plain English.
+
+Reactive UI: The application theme must dynamically shift (Red for Error, Green for Correct) based on the AI’s diagnosis.
+
+Local History: Ability to persist previous code queries in the browser (LocalStorage).
+
+Markdown Support: Render AI output with code highlighting for readability.
+
+4. Non-Functional Requirements
+Performance: API requests must be non-blocking (async/await).
+
+Accessibility: Modern glass-morphism design with high-contrast text.
+
+Security: API keys must never be hardcoded in production or committed to version control.
