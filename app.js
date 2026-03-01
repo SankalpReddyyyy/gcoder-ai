@@ -1,5 +1,5 @@
 // 🔑 PASTE YOUR API KEY HERE
-const API_KEY = "AIzaSyBGhwUePpA-kAK481Oi7cUdRFbx3sC5FPI"; 
+const API_KEY = "AIzaSyBud12y8gVZsD_CZOzH6fChTMpi3BDouPk"; 
 
 let sessionHistory = JSON.parse(localStorage.getItem('gcoder_history')) || [];
 

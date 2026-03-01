@@ -1,0 +1,256 @@
+GCoder AI – Multi-Language Test Dataset
+========================================
+
+This document contains:
+1. 10 Different Programming Languages with Errors
+2. 10 Different Programming Languages with Correct Code
+
+--------------------------------------------------
+PART 1: ERROR CODE SAMPLES
+--------------------------------------------------
+
+1) C – Missing Semicolon
+
+#include <stdio.h>
+
+int main() {
+    printf("Hello World")
+    return 0;
+}
+
+Error:
+Missing semicolon after printf statement.
+
+
+--------------------------------------------------
+
+2) Python – Indentation Error
+
+def greet():
+print("Hello World")
+
+greet()
+
+Error:
+Expected indentation inside function.
+
+
+--------------------------------------------------
+
+3) Java – Missing Closing Bracket
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+
+Error:
+Missing closing curly brace for class.
+
+
+--------------------------------------------------
+
+4) JavaScript – Undefined Variable
+
+function greet() {
+    console.log(message);
+}
+
+greet();
+
+Error:
+Variable 'message' is not defined.
+
+
+--------------------------------------------------
+
+5) C++ – Missing Namespace
+
+#include <iostream>
+
+int main() {
+    cout << "Hello World";
+    return 0;
+}
+
+Error:
+'cout' not declared. Missing std:: or using namespace std.
+
+
+--------------------------------------------------
+
+6) Go – Missing Import
+
+package main
+
+func main() {
+    fmt.Println("Hello World")
+}
+
+Error:
+Package 'fmt' not imported.
+
+
+--------------------------------------------------
+
+7) Rust – Syntax Error
+
+fn main() {
+    println("Hello World");
+}
+
+Error:
+Missing '!' in println! macro.
+
+
+--------------------------------------------------
+
+8) PHP – Missing Dollar Sign
+
+<?php
+name = "Bruce";
+echo $name;
+?>
+
+Error:
+Variable must start with $ symbol.
+
+
+--------------------------------------------------
+
+9) Swift – Type Mismatch
+
+let age: Int = "20"
+print(age)
+
+Error:
+Cannot assign String to Int variable.
+
+
+--------------------------------------------------
+
+10) Kotlin – Missing Return Type
+
+fun greet() {
+    return "Hello"
+}
+
+Error:
+Function returns String but return type is not declared.
+
+
+==================================================
+PART 2: CORRECT CODE SAMPLES
+==================================================
+
+1) C – Correct Code
+
+#include <stdio.h>
+
+int main() {
+    printf("Hello World\n");
+    return 0;
+}
+
+
+--------------------------------------------------
+
+2) Python – Correct Code
+
+def greet():
+    print("Hello World")
+
+greet()
+
+
+--------------------------------------------------
+
+3) Java – Correct Code
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+
+
+--------------------------------------------------
+
+4) JavaScript – Correct Code
+
+function greet() {
+    let message = "Hello World";
+    console.log(message);
+}
+
+greet();
+
+
+--------------------------------------------------
+
+5) C++ – Correct Code
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello World" << endl;
+    return 0;
+}
+
+
+--------------------------------------------------
+
+6) Go – Correct Code
+
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello World")
+}
+
+
+--------------------------------------------------
+
+7) Rust – Correct Code
+
+fn main() {
+    println!("Hello World");
+}
+
+
+--------------------------------------------------
+
+8) PHP – Correct Code
+
+<?php
+$name = "Bruce";
+echo $name;
+?>
+
+
+--------------------------------------------------
+
+9) Swift – Correct Code
+
+let age: Int = 20
+print(age)
+
+
+--------------------------------------------------
+
+10) Kotlin – Correct Code
+
+fun greet(): String {
+    return "Hello"
+}
+
+fun main() {
+    println(greet())
+}
+
+
+==================================================
+END OF DATASET
+==================================================

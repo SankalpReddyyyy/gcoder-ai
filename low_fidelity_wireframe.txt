@@ -1,0 +1,28 @@
+LOW FIDELITY WIREFRAME (Text Representation)
+
+ -----------------------------------------------------
+|                     GCoder AI                      |
+|            "Debug, fix, and learn."                |
+ -----------------------------------------------------
+
+|------------------|--------------------------------|
+|     SIDEBAR      |          MAIN WORKSPACE       |
+|------------------|--------------------------------|
+|  History Title   |  Language Dropdown            |
+|  [Item 1]        |  --------------------------    |
+|  [Item 2]        |  Code Textarea                |
+|  [Item 3]        |  --------------------------    |
+|                  |                                |
+|                  |  Analyze Button                |
+|                  |                                |
+|                  |  Output Section                |
+|                  |  --------------------------    |
+|                  |  AI Response Appears Here     |
+|------------------|--------------------------------|
+
+User Flow:
+1. User selects language
+2. User pastes code
+3. User clicks Analyze
+4. Output displays
+5. Sidebar logs session

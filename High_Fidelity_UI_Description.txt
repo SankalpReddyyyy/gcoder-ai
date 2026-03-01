@@ -1,0 +1,50 @@
+HIGH FIDELITY UI DESCRIPTION
+
+Theme System:
+The UI dynamically changes visual appearance based on AI response:
+
+DEFAULT STATE:
+- Neon Cyan
+- Glassmorphism panels
+- Radial gradient dark background
+
+ERROR STATE:
+- Blood Red theme
+- Red glow shadows
+- Red borders
+- Subtitle: "Threats Detected"
+
+SUCCESS STATE:
+- Emerald Green theme
+- Green glow effects
+- Subtitle: "Code is pristine"
+
+UI COMPONENTS:
+
+1. Sidebar
+   - Glass background
+   - Dynamic colored heading
+   - Clickable history items
+   - Dot indicator (Red/Green/Blue)
+
+2. Main Workspace
+   - Large glowing header text
+   - Language dropdown
+   - Code textarea
+   - Neon-bordered button
+   - Glass output container
+
+3. Output Section
+   - Markdown rendering
+   - Code blocks styled dark
+   - Smooth theme transitions
+
+Transitions:
+- 0.8s smooth color transitions
+- Glow intensity changes
+- Shadow effects animate on hover
+
+Design Language:
+- Cyberpunk inspired
+- Neon reactive UI
+- Dark developer aesthetic

@@ -1,0 +1,73 @@
+COMPONENT DIAGRAM
+GCoder AI – Reactive Edition
+
++--------------------------------------------------+
+|                    GCoder AI                     |
++--------------------------------------------------+
+
+   ┌──────────────────────────────────────────┐
+   │               UI COMPONENTS              │
+   └──────────────────────────────────────────┘
+        |
+        |-- Header Component
+        |     - Title
+        |     - Subtitle (Dynamic State)
+        |
+        |-- Sidebar Component
+        |     - History List
+        |     - History Item Renderer
+        |
+        |-- Input Component
+        |     - Language Selector
+        |     - Code Textarea
+        |     - Analyze Button
+        |
+        |-- Output Component
+              - Markdown Renderer
+              - Code Block Styling
+
+---------------------------------------------------
+
+   ┌──────────────────────────────────────────┐
+   │           CONTROLLER LAYER               │
+   └──────────────────────────────────────────┘
+        |
+        |-- fixMyCode()
+        |-- saveToHistory()
+        |-- renderHistory()
+        |-- loadHistoryItem()
+
+---------------------------------------------------
+
+   ┌──────────────────────────────────────────┐
+   │           SERVICE LAYER                  │
+   └──────────────────────────────────────────┘
+        |
+        |-- Gemini API Service
+              - Prompt Construction
+              - Fetch Request
+              - Response Handling
+
+---------------------------------------------------
+
+   ┌──────────────────────────────────────────┐
+   │           STORAGE LAYER                  │
+   └──────────────────────────────────────────┘
+        |
+        |-- LocalStorage
+              - Session History
+              - Theme State
+              - Language + Code
+
+---------------------------------------------------
+
+DEPENDENCIES:
+- Marked.js (Markdown parsing)
+- Gemini 3 Flash API
+- Browser LocalStorage
+- CSS Variable Theme Engine
+
+ARCHITECTURE STYLE:
+Modular Client-Side Architecture
+Event-Driven UI
+Reactive Theming System

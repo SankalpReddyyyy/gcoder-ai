@@ -1,133 +1,284 @@
-/* --- Master Theme Variables --- */
-body {
-    --bg-base: #0b0c10;
-    --text-main: #f8f8f2;
-    --text-muted: #8b949e;
-    --glass-bg: rgba(20, 25, 35, 0.65);
-    
-    /* These change dynamically based on the state! */
-    --theme-color: #00f0ff; /* Default Cyan */
-    --theme-glow: rgba(0, 240, 255, 0.4);
-    --theme-border: rgba(0, 240, 255, 0.2);
-    --theme-bg-gradient: radial-gradient(circle at 50% 0%, #1e1b4b, #090a0f 80%);
+/* ============================= */
+/*      GLOBAL THEME SYSTEM      */
+/* ============================= */
+
+:root {
+    --bg-dark: #0b0f1a;
+    --panel-bg: rgba(12, 18, 30, 0.75);
+    --text-main: #e6f1ff;
+    --text-muted: #8aa0c6;
+
+    /* DEFAULT (CYAN) */
+    --accent: #00f5ff;
+    --accent-glow: rgba(0, 245, 255, 0.5);
+    --accent-border: rgba(0, 245, 255, 0.35);
+    --bg-gradient: radial-gradient(circle at 40% 0%, #1a1f4f, #05070d 80%);
 }
 
-/* 🚨 ERROR THEME (Red) */
+/* ERROR THEME */
 body.theme-error {
-    --theme-color: #ff3333;
-    --theme-glow: rgba(255, 51, 51, 0.6);
-    --theme-border: rgba(255, 51, 51, 0.5);
-    --theme-bg-gradient: radial-gradient(circle at 50% 0%, #4a0404, #0f0000 80%);
+    --accent: #ff2e2e;
+    --accent-glow: rgba(255, 46, 46, 0.6);
+    --accent-border: rgba(255, 46, 46, 0.5);
+    --bg-gradient: radial-gradient(circle at 40% 0%, #3a0505, #090000 80%);
 }
 
-/* ✅ SUCCESS THEME (Green) */
+/* SUCCESS THEME */
 body.theme-success {
-    --theme-color: #39ff14;
-    --theme-glow: rgba(57, 255, 20, 0.5);
-    --theme-border: rgba(57, 255, 20, 0.5);
-    --theme-bg-gradient: radial-gradient(circle at 50% 0%, #023819, #001205 80%);
+    --accent: #39ff14;
+    --accent-glow: rgba(57, 255, 20, 0.6);
+    --accent-border: rgba(57, 255, 20, 0.5);
+    --bg-gradient: radial-gradient(circle at 40% 0%, #023819, #001205 80%);
 }
 
-/* --- Core Styles --- */
+/* ============================= */
+/*           BASE BODY           */
+/* ============================= */
+
 body {
     margin: 0;
     font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg-gradient);
+    background-color: var(--bg-dark);
     color: var(--text-main);
     display: flex;
     height: 100vh;
     overflow: hidden;
-    background: var(--theme-bg-gradient);
-    background-color: var(--bg-base);
-    transition: background 1s ease-in-out, --theme-color 0.5s ease;
+    transition: background 0.8s ease;
 }
+
+/* ============================= */
+/*        MAIN CONTAINER         */
+/* ============================= */
 
 .app-container {
-    display: flex; width: 100%; height: 100%;
-    backdrop-filter: blur(10px);
+    display: flex;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(12px);
 }
 
-/* --- Sidebar --- */
+/* ============================= */
+/*            SIDEBAR            */
+/* ============================= */
+
 .sidebar {
-    width: 280px; background-color: var(--glass-bg);
-    border-right: 1px solid var(--theme-border);
-    padding: 25px 20px; display: flex; flex-direction: column;
-    box-shadow: 5px 0 20px rgba(0,0,0,0.5);
-    transition: border-color 0.8s ease;
+    width: 300px;
+    background: var(--panel-bg);
+    border-right: 1px solid var(--accent-border);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 30px rgba(0,0,0,0.6);
+    transition: border 0.6s ease;
+    /* ADD THESE LINES TO ENABLE SCROLLING */
+    height: 100vh;      /* Sidebar locks to the full height of your screen */
+    overflow-y: auto;   /* Enables the scrollbar when history items exceed height */
+    flex-shrink: 0;     /* Ensures it doesn't get squished */
 }
 
+/* History title */
 .sidebar h2 {
-    color: var(--theme-color); margin-top: 0;
-    border-bottom: 1px solid var(--theme-border); padding-bottom: 15px;
-    text-shadow: 0 0 10px var(--theme-glow);
-    transition: color 0.8s ease, text-shadow 0.8s ease;
+    color: var(--accent);
+    margin-top: 0;
+    text-shadow: 0 0 15px var(--accent-glow);
+    border-bottom: 1px solid var(--accent-border);
+    padding-bottom: 15px;
 }
 
+/* History list scroll */
+.history-list {
+    overflow-y: auto;
+    margin-top: 20px;
+    padding-right: 5px;
+}
+
+/* Custom Scrollbar */
+.history-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.history-list::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* History item */
 .history-item {
-    background: rgba(0, 0, 0, 0.4); padding: 15px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;
-    border: 1px solid transparent; transition: all 0.3s ease;
-}
-
-.history-item:hover {
-    border-color: var(--theme-color); transform: translateX(8px);
-    box-shadow: -5px 0px 15px var(--theme-glow);
-}
-
-/* --- Main Workspace --- */
-.workspace {
-    flex: 1; padding: 40px 60px; display: flex; flex-direction: column; overflow-y: auto;
-}
-
-header h1 {
-    margin: 0 0 5px 0; font-size: 3rem;
-    color: var(--theme-color);
-    text-shadow: 0 0 20px var(--theme-glow);
-    transition: color 0.8s ease, text-shadow 0.8s ease;
-}
-
-select, textarea {
-    width: 100%; padding: 18px; margin-bottom: 20px;
-    background-color: rgba(0, 0, 0, 0.6); color: var(--text-main);
-    border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; font-size: 16px; outline: none;
+    background: rgba(0,0,0,0.4);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
     transition: all 0.3s ease;
 }
 
-select:focus, textarea:focus {
-    border-color: var(--theme-color);
-    box-shadow: 0 0 15px var(--theme-glow);
+.history-item:hover {
+    border-color: var(--accent);
+    transform: translateX(8px);
+    box-shadow: -5px 0 20px var(--accent-glow);
 }
 
-textarea { height: 200px; font-family: 'Courier New', monospace; resize: vertical; }
+/* ============================= */
+/*          WORKSPACE            */
+/* ============================= */
+
+.workspace {
+    flex: 1;
+    padding: 50px 60px;
+    overflow-y: auto;
+}
+
+/* Header */
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    color: var(--accent);
+    text-shadow: 0 0 25px var(--accent-glow);
+    transition: 0.6s ease;
+}
+
+#subtitle {
+    margin-top: 8px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+/* ============================= */
+/*         INPUT AREA            */
+/* ============================= */
+
+select,
+textarea {
+    width: 100%;
+    padding: 18px;
+    margin-top: 25px;
+    background: rgba(0,0,0,0.6);
+    color: var(--text-main);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+select:focus,
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+textarea {
+    height: 250px;
+    font-family: 'Courier New', monospace;
+    resize: vertical;
+}
+
+/* ============================= */
+/*           BUTTON              */
+/* ============================= */
 
 button {
-    width: 100%; padding: 18px;
-    background: transparent; color: var(--theme-color);
-    border: 2px solid var(--theme-color); border-radius: 10px;
-    font-size: 18px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;
-    cursor: pointer; transition: all 0.3s ease;
-    box-shadow: 0 0 15px var(--theme-glow) inset, 0 0 20px var(--theme-glow);
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 14px;
+    border: 2px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--accent-glow) inset,
+                0 0 25px var(--accent-glow);
 }
 
 button:hover {
-    background: var(--theme-color); color: #000;
-    box-shadow: 0 0 30px var(--theme-glow); transform: translateY(-2px);
+    background: var(--accent);
+    color: #000;
+    box-shadow: 0 0 35px var(--accent-glow);
+    transform: translateY(-3px);
 }
 
-/* --- Output Box --- */
+/* ============================= */
+/*          OUTPUT BOX           */
+/* ============================= */
+
 .output-section {
-    margin-top: 35px; padding: 30px;
-    background-color: var(--glass-bg); border-radius: 12px;
-    border: 1px solid var(--theme-border);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px var(--theme-glow) inset;
-    transition: all 0.8s ease;
+    margin-top: 40px;
+    padding: 30px;
+    background: var(--panel-bg);
+    border-radius: 16px;
+    border: 1px solid var(--accent-border);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.6),
+        0 0 25px var(--accent-glow) inset;
+    transition: all 0.6s ease;
 }
 
 .output-section pre {
-    background: #0d1117; padding: 20px; border-radius: 8px; overflow-x: auto;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0d1117;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    border: 1px solid rgba(255,255,255,0.1);
 }
-.output-section code { color: #a5d6ff; font-family: 'Courier New', monospace; }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
-::-webkit-scrollbar-thumb { background: var(--theme-color); border-radius: 4px; }
+.output-section code {
+    color: #a5d6ff;
+}
+/* ============================= */
+/*      GLOBAL SCROLLBAR        */
+/* ============================= */
+
+/* Apply to entire app */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) rgba(0,0,0,0.2);
+}
+
+/* Webkit browsers (Chrome, Edge, Brave) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        var(--accent),
+        rgba(0,0,0,0.6)
+    );
+    border-radius: 12px;
+    border: 2px solid rgba(0,0,0,0.4);
+    box-shadow:
+        0 0 12px var(--accent-glow),
+        0 0 20px var(--accent-glow) inset;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+    box-shadow:
+        0 0 20px var(--accent-glow),
+        0 0 30px var(--accent-glow);
+}

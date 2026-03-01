@@ -1,0 +1,30 @@
+PROJECT NAME: GCoder AI – Reactive Edition
+
+PROBLEM STATEMENT:
+Beginner programmers struggle to:
+- Understand syntax errors clearly
+- Debug logic mistakes
+- Learn why their code fails
+- Visually understand correctness vs error state
+
+SOLUTION:
+GCoder AI is a reactive AI-powered code analysis platform that:
+- Accepts code input (C, Python, JavaScript)
+- Sends it to Gemini API
+- Categorizes output as [ERROR] or [CORRECT]
+- Dynamically shifts UI theme (Red/Green)
+- Stores session history locally
+- Explains fixes using Markdown formatting
+
+CORE FEATURES:
+1. AI-based debugging
+2. Dynamic theme switching
+3. Persistent local history
+4. Markdown-rendered explanations
+5. Minimal, futuristic UI
+
+TECH STACK:
+Frontend: HTML, CSS (Variables), JavaScript
+AI Engine: Gemini 3 Flash API
+Rendering: Marked.js (Markdown Parser)
+Storage: LocalStorage

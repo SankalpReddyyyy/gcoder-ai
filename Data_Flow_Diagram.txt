@@ -1,0 +1,24 @@
+DATA FLOW DIAGRAM (DFD)
+
+[User Input]
+      |
+      v
+[Textarea + Language Select]
+      |
+      v
+[Prompt Generator]
+      |
+      v
+[Gemini API]
+      |
+      v
+[AI Categorized Output]
+      |
+      +----> [Theme Switch Logic]
+      |
+      +----> [Markdown Parser]
+      |
+      +----> [LocalStorage Save]
+      |
+      v
+[Output Displayed to User]

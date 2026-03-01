@@ -1,0 +1,48 @@
+STATE DIAGRAM
+GCoder AI UI Theme & System States
+
+                +------------------+
+                |  DEFAULT STATE   |
+                |  (Neon Cyan)     |
+                +---------+--------+
+                          |
+                          | User Clicks Analyze
+                          v
+                +------------------+
+                |   LOADING STATE  |
+                | "Analyzing..."   |
+                +---------+--------+
+                          |
+                          | API Response
+                          v
+        +-----------------+------------------+
+        |                                    |
+        v                                    v
++------------------+               +------------------+
+|   ERROR STATE    |               |  SUCCESS STATE   |
+|   (Red Theme)    |               |  (Green Theme)   |
++--------+---------+               +--------+---------+
+         |                                  |
+         | User Clicks History              |
+         |                                  |
+         +---------------+------------------+
+                         |
+                         v
+                 Restore Saved State
+
+--------------------------------------------------
+
+SYSTEM STATES:
+
+1. Idle
+2. Loading
+3. Error Detected
+4. Correct Code
+5. API Failure
+6. History Restore
+
+STATE TRANSITIONS:
+Idle → Loading → (Error OR Success)
+Error → History Restore
+Success → History Restore
+Loading → API Failure (Red Theme)

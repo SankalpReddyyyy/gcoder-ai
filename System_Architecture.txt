@@ -1,0 +1,53 @@
+SYSTEM ARCHITECTURE
+
+                     +--------------------+
+                     |      USER          |
+                     +---------+----------+
+                               |
+                               v
+                     +--------------------+
+                     |     FRONTEND       |
+                     | HTML + CSS + JS    |
+                     +---------+----------+
+                               |
+                               v
+                     +--------------------+
+                     |   fixMyCode()      |
+                     |  (Controller)      |
+                     +---------+----------+
+                               |
+                               v
+                     +--------------------+
+                     | Gemini API         |
+                     | (AI Processing)    |
+                     +---------+----------+
+                               |
+                               v
+                     +--------------------+
+                     | AI Response        |
+                     | [ERROR]/[CORRECT]  |
+                     +---------+----------+
+                               |
+                               v
+                     +--------------------+
+                     | Theme Engine       |
+                     | (CSS Variables)    |
+                     +---------+----------+
+                               |
+                               v
+                     +--------------------+
+                     | Markdown Renderer  |
+                     | (marked.js)        |
+                     +---------+----------+
+                               |
+                               v
+                     +--------------------+
+                     | LocalStorage       |
+                     | History Save       |
+                     +--------------------+
+
+ARCHITECTURE STYLE:
+Client-side architecture
+API-based AI service
+Reactive UI state management
+Local persistence model

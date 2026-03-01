@@ -1,0 +1,23 @@
+SEQUENCE DIAGRAM
+
+User -> Frontend: Paste Code
+User -> Frontend: Click Analyze
+
+Frontend -> fixMyCode(): Trigger
+fixMyCode() -> Gemini API: Send Prompt
+
+Gemini API -> fixMyCode(): Return Response
+
+fixMyCode():
+    if [ERROR]
+        Apply theme-error
+    else if [CORRECT]
+        Apply theme-success
+
+fixMyCode() -> Markdown Renderer: Parse Output
+Markdown Renderer -> UI: Display HTML
+
+fixMyCode() -> LocalStorage: Save Session
+
+User -> Sidebar: Click History
+Sidebar -> loadHistoryItem(): Restore Theme + Output

@@ -1,0 +1,42 @@
+DEPLOYMENT DIAGRAM
+GCoder AI – Web Deployment Architecture
+
+                +-----------------------+
+                |        USER           |
+                |  Browser (Chrome)     |
+                +-----------+-----------+
+                            |
+                            |
+                            v
+                +-----------------------+
+                |    FRONTEND SERVER    |
+                | (Static Hosting)      |
+                |  - HTML               |
+                |  - CSS                |
+                |  - JS                 |
+                +-----------+-----------+
+                            |
+                            | HTTPS Request
+                            v
+                +-----------------------+
+                |  Google Gemini API    |
+                |  generativelanguage   |
+                +-----------------------+
+
+--------------------------------------------------
+
+HOSTING OPTIONS:
+- GitHub Pages
+- Netlify
+- Vercel
+- Firebase Hosting
+
+SECURITY NOTE:
+API Key currently stored in frontend (not secure).
+Recommended:
+- Move API calls to backend server
+- Hide API key in environment variable
+- Use server proxy
+
+NETWORK FLOW:
+User → Browser → Gemini API → Browser → UI Update
