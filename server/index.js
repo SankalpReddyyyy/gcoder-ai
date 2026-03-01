@@ -16,7 +16,7 @@ app.post("/debug", async (req, res) => {
     const { code, language } = req.body;
 
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
+      model: "gemini-3-flash",
     });
 
     const prompt = `
@@ -43,9 +43,8 @@ BEGINNER TIP:
     res.status(500).json({ error: "Something went wrong" });
   }
 });
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
